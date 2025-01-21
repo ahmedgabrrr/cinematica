@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+
+import { apiKey, popular, trending } from './modules/ApiLinks';
+import DisplayItems from './components/DisplayItems';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <br /><br /><br /><br /><br />
+      <Header />
+      <DisplayItems apiEndpoint={trending} itemHeading='Trending' showButtons={true} tvShowOn={true} moviesOn={true} numberOfMovies={100} />
+      <DisplayItems apiEndpoint={popular} itemHeading='Popular' showButtons={true} tvShowOn={true} moviesOn={true} numberOfMovies={100} />
+
+    </>
   );
 }
 
